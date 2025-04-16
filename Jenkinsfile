@@ -24,9 +24,10 @@ pipeline {
         }
 
         stage('Deploy to Tomcat') {
-            steps {
-                deploy adapters: [tomcat9(credentialsId: "${TOMCAT_CREDENTIALS}", url: "${TOMCAT_URL}")], contextPath: 'myfirst', war: 'target/myfirst-1.0-SNAPSHOT.war'
-            }
-        }
+    steps {
+        deploy adapters: [tomcat9(credentialsId: "${TOMCAT_CREDENTIALS}", url: "${TOMCAT_URL}")], contextPath: 'myfirst', war: 'target/myfirst.war'
+    }
+}
+
     }
 }
