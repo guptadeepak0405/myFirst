@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git branch: 'main',git 'https://github.com/archis04/myfirst.git'
+                git branch: 'main', url: 'https://github.com/archis04/myfirst.git'
             }
         }
 
