@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build WAR') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
