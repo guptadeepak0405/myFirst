@@ -14,7 +14,6 @@ pipeline {
         stage('Clone Code') {
             steps {
                 git branch: 'main', url: 'https://github.com/guptadeepak0405/myFirst.git'
-'
             }
         }
 
@@ -25,10 +24,14 @@ pipeline {
         }
 
         stage('Deploy to Tomcat') {
-    steps {
-        deploy adapters: [tomcat9(credentialsId: "${TOMCAT_CREDENTIALS}", url: "${TOMCAT_URL}")], contextPath: 'myfirst', war: 'target/myfirst.war'
-    }
-}
-
+            steps {
+                deploy adapters: [
+                    tomcat9(
+                        credentialsId: "${TOMCAT_CREDENTIALS}",
+                        url: "${TOMCAT_URL}"
+                    )
+                ], contextPath: 'myfirst', war: 'target/myfirst.war'
+            }
+        }
     }
 }
